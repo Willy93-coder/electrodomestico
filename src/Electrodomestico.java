@@ -21,7 +21,6 @@ public class Electrodomestico {
 
 
     // Constructores:
-
     public Electrodomestico() {
     }
 
@@ -78,7 +77,13 @@ public class Electrodomestico {
 
     // Método precio final
     public double precioFinal() {
-        return precio_base;
+        double precio = this.precio_base;
+        double peso = this.peso;
+        char consumo = this.consumo_electrico;
+        double precioSegunConsumo = precioSegunConsumo(consumo);
+        double precioSegunPeso = precioSegunPeso(peso);
+        double precioFinal = precioSegunConsumo + precioSegunPeso + precio;
+        return precioFinal;
     };
 
     public double precioSegunConsumo(char consumo_electrico) {
