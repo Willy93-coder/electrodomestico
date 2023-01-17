@@ -77,12 +77,19 @@ public class Electrodomestico {
 
     // Método precio final
     public double precioFinal() {
-        double precio = this.precio_base;
-        double peso = this.peso;
-        char consumo = this.consumo_electrico;
+        double precio = getPrecio_base();
+        // System.out.println("Precio base: " + precio);
+        double peso = getPeso();
+        // System.out.println("Peso: " + peso);
+        char consumo = getConsumo_electrico();
+        // System.out.println("Consumo electrico: " + peso);
         double precioSegunConsumo = precioSegunConsumo(consumo);
+        // System.out.println("Precio por consumo: " + precioSegunConsumo);
         double precioSegunPeso = precioSegunPeso(peso);
+        // System.out.println("Precio por peso: " + precioSegunPeso);
         double precioFinal = precioSegunConsumo + precioSegunPeso + precio;
+        //
+        // System.out.println("Precio final: " + precioFinal);
         return precioFinal;
     };
 
@@ -102,19 +109,19 @@ public class Electrodomestico {
 
     public double precioSegunPeso(double pesoElectrodomestico) {
         double precio = 0;
-        if (0 <= pesoElectrodomestico || pesoElectrodomestico <= 19.0) {
+        if (0 <= pesoElectrodomestico && pesoElectrodomestico <= 19.0) {
             precio = 10;
         }
 
-        if (20 <= pesoElectrodomestico || pesoElectrodomestico <= 49.0) {
+        if (20 <= pesoElectrodomestico && pesoElectrodomestico <= 49.0) {
             precio = 50;
         }
 
-        if (50 <= pesoElectrodomestico || pesoElectrodomestico <= 79.0) {
+        if (50 <= pesoElectrodomestico && pesoElectrodomestico <= 79.0) {
             precio = 80;
         }
 
-        if (pesoElectrodomestico <= 80 ) {
+        if (pesoElectrodomestico >= 80 ) {
             precio = 100;
         }
         return precio;

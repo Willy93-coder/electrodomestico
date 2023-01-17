@@ -29,16 +29,29 @@ public class Secadora extends Electrodomestico{
         double sumPrecio = 0;
         if (carga > 30) {
             return sumPrecio = 50;
+        } else {
+            return sumPrecio;
         }
-        return sumPrecio;
     }
 
     // Método precio final
     @Override
     public double precioFinal() {
         double carga = getCarga();
+        double precio_segun_carga = aumentoPrecio(carga);
         double precio = super.precioFinal();
-        double precio_final = carga + precio;
+        double precio_final = precio_segun_carga + precio;
         return precio_final;
+    }
+
+    @Override
+    public String toString() {
+        return "Secadora{" +
+                "carga=" + carga +
+                ", precio_base=" + precio_base +
+                ", color='" + color + '\'' +
+                ", consumo_electrico=" + consumo_electrico +
+                ", peso=" + peso +
+                '}';
     }
 }
